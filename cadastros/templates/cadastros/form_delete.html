@@ -1,0 +1,18 @@
+{% extends 'paginas/modelo.html' %}
+{% load static %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+{% block conteudo %}
+<h1 class="mt-4">Exclusão de dados</h1>
+<p class="lead text-danger">
+Tem certeza que deseja excluir o registro: <br>
+{{ object }}
+</p>
+<form method="POST">
+{% csrf_token %}
+{% comment %} {{ form|crispy }} {% endcomment %}
+{{form.as_p}}
+<button type="submit" class="btn btn-danger">
+Excluir
+</button>
+</form>
+{% endblock %}

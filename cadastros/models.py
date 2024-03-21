@@ -20,7 +20,7 @@ class Estudante(models.Model):
     atualizado_em = models.DateField(auto_now=True)
     
     def __str__(self):
-        return self.nome
+        return f"{self.nome}"
     
 
 class Estagio(models.Model):

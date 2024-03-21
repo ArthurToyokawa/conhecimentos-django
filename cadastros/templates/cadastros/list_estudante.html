@@ -18,6 +18,7 @@ Cadastrar Estudante
 <th>Data_nascimento</th>
 <th>Email</th>
 <th>Atualizado Em</th>
+<th>Ações</th>
 </tr>
 </thead>
 <tbody>
@@ -30,10 +31,10 @@ Cadastrar Estudante
 <td>{{ obj.email }}</td>
 <td>{{ obj.atualizado_em }}</td>
 <td>
-{% comment %} <a href="{% url 'editar-estudante' obj.pk %}" class="btn btn-warning">
+<a href="{% url 'update-estudante' obj.pk %}" class="btn btn-warning">
 Editar</a>
-<a href="{% url 'excluir-estudante' obj.pk %}" class="btn btn-danger">
-Excluir</a> {% endcomment %}
+<a href="{% url 'delete-estudante' obj.pk %}" class="btn btn-danger">
+Excluir</a>
 </td>
 </tr>
 {% empty %}
