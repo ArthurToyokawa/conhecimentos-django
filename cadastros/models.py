@@ -17,7 +17,7 @@ class Estudante(models.Model):
     matricula = models.CharField(max_length=255)
     data_nascimento = models.DateField()
     email = models.EmailField()
-    atualizado_em = models.DateField(auto_now=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return f"{self.nome}"
@@ -27,7 +27,7 @@ class Estagio(models.Model):
     estudante = models.ForeignKey(Estudante, on_delete=models.PROTECT)
     empresa = models.CharField(max_length=255)
     data_inicio = models.DateField(verbose_name="Data de início")
-    data_termino = models.DateField(blank=True)
+    data_termino = models.DateField(blank=True, null=True, verbose_name="Data de Termino")
     carga_horaria = models.IntegerField()
     # protocolado_por = models.ForeignKey(User, on_delete=models.PROTECT)
     data_protocolo: models.DateTimeField(auto_now_add=True)

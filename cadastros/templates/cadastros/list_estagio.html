@@ -1,0 +1,55 @@
+{% extends 'paginas/modelo.html' %}
+{% load static %}
+{% block conteudo %}
+<h1 class="mt-4">
+Lista de Estagios
+<a href="{% url 'create-estagio' %}"
+class="btn btn-primary float-right ms-5">
+Cadastrar Estagio
+</a>
+</h1>
+<hr>
+<table class="table table-striped listar">
+<thead>
+<tr>
+<th>#</th>
+<th>Estudante</th>
+<th>Empresa</th>
+<th>Data Inicio</th>
+<th>Data Termino</th>
+<th>Carga horaria</th>
+<th>Data protocolo</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+{% for obj in object_list %}
+<tr>
+<td>{{ obj.pk }}</td>
+<td>{{ obj.estudante }}</td>
+<td>{{ obj.empresa }}</td>
+<td>{{ obj.data_inicio }}</td>
+<td>{{ obj.data_termino }}</td>
+<td>{{ obj.carga_horaria }}</td>
+<td>{{ obj.data_protocolo }}</td>
+<td>
+<a href="{% url 'update-estagio' obj.pk %}" class="btn btn-warning">
+Editar</a>
+{% if request.user.is_authenticated %}
+<a href="{% url 'delete-estagio' obj.pk %}" class="btn btn-danger">
+Excluir</a>
+{% else %}
+<a href="#" class="btn disabled">
+Excluir</a>
+{% endif %}
+
+</td>
+</tr>
+{% empty %}
+<tr>
+<td colspan="100%">Nenhum registro encontado.</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block conteudo %}
-<h3>Bem Vindos ao sistema</h3>
-
-<p>Em construção!</p>
+<a href="{% url 'list-estudante'%}" class="btn btn-primary">
+Estudantes</a>
+<a href="{% url 'list-estagio'%}" class="btn btn-primary">
+Estagios</a>
 {% endblock %}

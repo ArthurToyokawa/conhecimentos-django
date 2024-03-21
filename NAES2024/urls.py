@@ -22,7 +22,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     
     # importa as urls dos apps
-    path("", include("paginas.urls") ),
     path("cadastros/", include("cadastros.urls") ),
+    path("auth/", include("usuarios.urls") ),
+    path("", include("paginas.urls") ),
 
 ]
